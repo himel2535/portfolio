@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --color-primary: #ff6b6b;
+  --color-secondary: #1f2937;
+  --color-accent: #f87171;
+  --color-dark: #0a0a0a;
+  --color-glass: rgba(255, 255, 255, 0.05);
+
+  --font-sans: 'Inter', sans-serif;
+
+  /* Radial gradient with a subtle orange/red glow on the right side to match the feel */
+  --background-image-hero-gradient: radial-gradient(circle at 80% 50%, #451a1a 0%, #1a0f0f 40%, #000000 100%);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-hero-gradient text-white font-sans min-h-screen;
+  background-attachment: fixed;
+}
+
+html {
+  scroll-behavior: smooth;
+}
