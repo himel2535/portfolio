@@ -5,14 +5,31 @@ const About = () => {
   return (
     <section id="about" className="py-24 bg-gray-900 text-gray-300">
       <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <motion.h2 
+            className="text-4xl font-bold text-white mb-4"
+            whileHover={{ scale: 1.05, color: '#06b6d4' }}
+            transition={{ duration: 0.3 }}
+          >
+            About Me
+          </motion.h2>
+        </motion.div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
           {/* Left Column - Introduction */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -50, scale: 0.95 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, type: "spring" }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Hi, I'm Monwar Hossan Himel
@@ -27,11 +44,15 @@ const About = () => {
 
           {/* Right Column - Personal Info */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="bg-gray-800 rounded-xl p-8 shadow-lg"
+            transition={{ duration: 0.8, type: "spring" }}
+            whileHover={{ 
+              y: -10,
+              boxShadow: '0 20px 40px rgba(6, 182, 212, 0.2)',
+            }}
+            className="bg-[#112240]/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-8 transition-all duration-300 cursor-pointer"
           >
             <h3 className="text-2xl font-semibold text-white mb-6 border-b border-gray-700 pb-2">
               Personal Info

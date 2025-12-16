@@ -1,177 +1,239 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ToastContainer, toast } from 'react-toastify';
-import { FaFacebookF, FaLinkedinIn, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
+import { toast } from 'react-toastify';
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
 
 const Contact = () => {
-  const [email, setEmail] = useState("");
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
 
-  const handleSubscribe = (e) => {
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email) return toast.error("Please enter an email!");
-    toast.success("Subscribed successfully!", {
+    if (!formData.name || !formData.email || !formData.message) {
+      toast.error("Please fill in all fields!");
+      return;
+    }
+    toast.success("Message sent successfully!", {
       style: {
-        background: "#2563eb", // bluish color
+        background: "#8B5CF6",
         color: "#fff"
       },
     });
-    setEmail("");
+    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-900 relative overflow-hidden">
+    <section id="contact" className="py-20 bg-dark relative overflow-hidden">
       
-      {/* Background Glow */}
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[100px] -z-10"></div>
-
       <div className="container mx-auto px-4">
-
-        {/* FAQ Section */}
-        <div className="mb-20 max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-white">
-              Answers You Might Be Looking For
-            </h2>
-          </div>
-
-          <div className="join join-vertical w-full space-y-3">
-
-            {/* Q1 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="collapse collapse-arrow join-item bg-base-200/20 border border-white/10 rounded-xl"
-            >
-              <input type="radio" name="faq" defaultChecked />
-              <div className="collapse-title text-lg font-semibold">
-                Why should you hire me as a Full-Stack Developer?
-              </div>
-              <div className="collapse-content text-gray-300">
-                <p>
-                  I bring strong skills in both frontend and backend 
-                  (React, Node, MongoDB, Express).  
-                  I focus on building fast, clean, user-friendly applications and 
-                  I’m committed to learning new technologies quickly.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Q2 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="collapse collapse-arrow join-item bg-base-200/20 border border-white/10 rounded-xl"
-            >
-              <input type="radio" name="faq" />
-              <div className="collapse-title text-lg font-semibold">
-                Do you work remotely?
-              </div>
-              <div className="collapse-content text-gray-300">
-                <p>
-                  Yes! I can collaborate with teams remotely using GitHub, Slack, Zoom, 
-                  and other modern tools. Comfortable with async workflows too.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Q3 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="collapse collapse-arrow join-item bg-base-200/20 border border-white/10 rounded-xl"
-            >
-              <input type="radio" name="faq" />
-              <div className="collapse-title text-lg font-semibold">
-                Are you available for full-time or internship roles?
-              </div>
-              <div className="collapse-content text-gray-300">
-                <p>
-                  Yes! I am actively looking for opportunities where I can grow, 
-                  contribute, and work on real-world projects as a full-stack developer.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Q4 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="collapse collapse-arrow join-item bg-base-200/20 border border-white/10 rounded-xl"
-            >
-              <input type="radio" name="faq" />
-              <div className="collapse-title text-lg font-semibold">
-                What technologies do you specialize in?
-              </div>
-              <div className="collapse-content text-gray-300">
-                <p>
-                  I primarily work with React, JavaScript, Tailwind, Node.js, Express, 
-                  MongoDB, Firebase, and REST APIs.  
-                  I also enjoy working with animations & UI/UX.
-                </p>
-              </div>
-            </motion.div>
-
-          </div>
-        </div>
-
-
-        {/* Contact Icons */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex justify-center gap-10 mb-12"
+          className="text-center mb-12"
         >
-          <a href="https://www.facebook.com/yourprofile" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-500 text-2xl">
-            <FaFacebookF />
-          </a>
-          <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-500 text-2xl">
-            <FaLinkedinIn />
-          </a>
-          <a href="mailto:youremail@example.com" className="text-gray-300 hover:text-blue-500 text-2xl">
-            <FaEnvelope />
-          </a>
-          <a href="tel:+8801782255880" className="text-gray-300 hover:text-blue-500 text-2xl">
-            <FaPhoneAlt />
-          </a>
+          <motion.h2 
+            className="text-4xl font-bold text-white mb-4"
+            whileHover={{ scale: 1.05, color: '#06b6d4' }}
+            transition={{ duration: 0.3 }}
+          >
+            Get In Touch
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-gray-400"
+          >
+            Have a project in mind? Let's work together
+          </motion.p>
         </motion.div>
 
-        {/* Newsletter Section */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }} 
-          whileInView={{ opacity: 1, scale: 1 }} 
-          transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-blue-900/40 to-gray-800 p-8 md:p-16 rounded-3xl text-center border border-white/5 relative overflow-hidden"
-        >
-          <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Stay Updated
-            </h2>
-            <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-              Subscribe to get updates, new projects, and insights from my developer journey.
-            </p>
-            
-            <form onSubmit={handleSubscribe} className="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
-              <input 
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="input input-bordered w-full bg-gray-700/50 backdrop-blur-sm focus:input-primary"
-              />
-              <button type="submit" className="btn btn-primary px-8">
-                Subscribe
-              </button>
+        {/* Two Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-[#112240]/50 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8"
+          >
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name Input */}
+              <div>
+                <label className="block text-gray-300 text-sm font-medium mb-2">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                  className="w-full bg-[#0a192f]/50 border border-cyan-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/50 transition-all duration-300"
+                />
+              </div>
+
+              {/* Email Input */}
+              <div>
+                <label className="block text-gray-300 text-sm font-medium mb-2">
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="name@example.com"
+                  className="w-full bg-[#0a192f]/50 border border-cyan-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors"
+                />
+              </div>
+
+              {/* Message Input */}
+              <div>
+                <label className="block text-gray-300 text-sm font-medium mb-2">
+                  Your Message
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell me about your project..."
+                  rows="5"
+                  className="w-full bg-[#0a192f]/50 border border-cyan-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors resize-none"
+                ></textarea>
+              </div>
+
+              {/* Submit Button */}
+              <motion.button
+                type="submit"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-600 hover:to-cyan-500 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg shadow-cyan-500/50 flex items-center justify-center gap-2"
+              >
+                Send Message <FaPaperPlane className="text-sm" />
+              </motion.button>
             </form>
-          </div>
-        </motion.div>
+          </motion.div>
 
+          {/* Contact Information */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            {/* Contact Information Card */}
+            <div className="bg-[#112240]/50 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8">
+              <h3 className="text-xl font-semibold text-white mb-6">Contact Information</h3>
+              
+              <div className="space-y-4">
+                {/* Email */}
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-cyan-500/10 border border-cyan-500/30 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FaEnvelope className="text-cyan-400 text-lg" />
+                  </div>
+                  <div>
+                    <p className="text-gray-400 text-sm mb-1">Email</p>
+                    <a href="mailto:monwarhossanhimel@gmail.com" className="text-white font-medium hover:text-cyan-400 transition-colors">
+                      monwarhossanhimel@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* Location */}
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-cyan-500/10 border border-cyan-500/30 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-gray-400 text-sm mb-1">Location</p>
+                    <p className="text-white font-medium">Dhaka, Kishoreganj</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Available Badge */}
+              <div className="mt-6 pt-6 border-t border-gray-700/50">
+                <div className="flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-lg px-4 py-3">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                  </span>
+                  <span className="text-green-400 font-medium text-sm">Available for freelance work</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Connect With Me Card */}
+            <div className="bg-[#112240]/50 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8">
+              <h3 className="text-xl font-semibold text-white mb-6">Connect With Me</h3>
+              
+              <div className="grid grid-cols-2 gap-4">
+                {/* GitHub */}
+                <a
+                  href="https://github.com/himel2535"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center justify-center gap-3 bg-[#0a192f]/50 border border-cyan-500/20 hover:border-cyan-500 rounded-lg p-6 transition-all duration-300 group hover:shadow-lg hover:shadow-cyan-500/10"
+                >
+                  <FaGithub className="text-3xl text-gray-400 group-hover:text-white transition-colors" />
+                  <span className="text-sm text-gray-400 group-hover:text-white transition-colors">GitHub</span>
+                </a>
+
+                {/* LinkedIn */}
+                <a
+                  href="https://www.linkedin.com/in/monwar-hossan-himel/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center justify-center gap-3 bg-[#0a192f]/50 border border-cyan-500/20 hover:border-cyan-500 rounded-lg p-6 transition-all duration-300 group hover:shadow-lg hover:shadow-cyan-500/10"
+                >
+                  <FaLinkedin className="text-3xl text-gray-400 group-hover:text-cyan-500 transition-colors" />
+                  <span className="text-sm text-gray-400 group-hover:text-white transition-colors">LinkedIn</span>
+                </a>
+
+                {/* Twitter */}
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center justify-center gap-3 bg-[#0a192f]/50 border border-cyan-500/20 hover:border-cyan-500 rounded-lg p-6 transition-all duration-300 group hover:shadow-lg hover:shadow-cyan-500/10"
+                >
+                  <FaTwitter className="text-3xl text-gray-400 group-hover:text-cyan-500 transition-colors" />
+                  <span className="text-sm text-gray-400 group-hover:text-white transition-colors">Twitter</span>
+                </a>
+
+                {/* Email */}
+                <a
+                  href="mailto:monwarhossanhimel@gmail.com"
+                  className="flex flex-col items-center justify-center gap-3 bg-[#0a192f]/50 border border-cyan-500/20 hover:border-cyan-500 rounded-lg p-6 transition-all duration-300 group hover:shadow-lg hover:shadow-cyan-500/10"
+                >
+                  <FaEnvelope className="text-3xl text-gray-400 group-hover:text-cyan-500 transition-colors" />
+                  <span className="text-sm text-gray-400 group-hover:text-white transition-colors">Email</span>
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
       </div>
-      <ToastContainer />
     </section>
   );
 };

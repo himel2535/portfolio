@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Banner from './components/sections/Banner';
+import UnderwaterBackground from './components/common/AnimatedBackground';
 // import ClientLogos from './components/sections/ClientLogos';
 import About from './components/sections/About';
 import Projects from './components/sections/Projects';
@@ -15,7 +16,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <div className="min-h-screen bg-dark text-white flex flex-col font-sans">
+    <div className="min-h-screen text-white flex flex-col font-sans relative">
+      <UnderwaterBackground />
       <Navbar />
       <main className="flex-grow">
         <Banner />
