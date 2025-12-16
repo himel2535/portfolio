@@ -57,9 +57,9 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-dark">
+    <section id="skills" className="py-20 bg-transparent">
       <div className="container mx-auto px-4">
-        <div className="mb-12">
+        <div className="text-center mb-12">
           <motion.h2 
             className="text-4xl font-bold text-white mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent inline-block"
             whileHover={{ scale: 1.05 }}
@@ -82,8 +82,8 @@ const Skills = () => {
             transition={{ delay: catIndex * 0.1, duration: 0.5 }}
             whileHover={{
               y: -5,
-              boxShadow: '0 20px 40px rgba(6, 182, 212, 0.2)',
-              borderColor: 'rgba(6, 182, 212, 0.6)'
+              scale: 1.03,
+              boxShadow: '0 20px 40px -15px rgba(6, 182, 212, 0.3)'
             }}
             className="bg-[#112240]/50 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-6 transition-all duration-300 cursor-pointer"
           >

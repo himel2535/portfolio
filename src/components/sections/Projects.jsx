@@ -55,7 +55,7 @@ const Projects = () => {
     : projects.filter(project => project.tags.includes(activeFilter));
 
   return (
-    <section id="projects" className="py-20 bg-[#0a192f]">
+    <section id="projects" className="py-20 bg-transparent">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -90,7 +90,13 @@ const Projects = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="flex flex-col bg-[#112240] border border-cyan-500/10 rounded-xl overflow-hidden hover:border-cyan-500/40 transition-all group h-full"
+                whileHover={{ 
+                  y: -10, 
+                  scale: 1.02,
+                  boxShadow: "0 20px 30px -10px rgba(6, 182, 212, 0.3)"
+                }}
+                transition={{ duration: 0.3 }}
+                className="flex flex-col bg-[#112240]/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl overflow-hidden transition-all group h-full cursor-pointer"
               >
                   {/* 1. Image Section (Fixed Aspect Ratio) */}
                 <div className="relative aspect-video overflow-hidden">

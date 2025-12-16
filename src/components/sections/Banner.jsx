@@ -5,9 +5,26 @@ import profileImage from '../../assets/profileImage.jpg';
 
 const Banner = () => {
   const titleText = "Full-Stack Developer";
+  const nameText = "Monwar Hossan Himel,";
+
+  const letterVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 }
+  };
+
+  const sentenceVariants = {
+    hidden: { opacity: 1 },
+    visible: { 
+      opacity: 1, 
+      transition: { 
+        staggerChildren: 0.05,
+        delayChildren: 0.5
+      } 
+    }
+  };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden pt-20">
+    <section id="hero" className="min-h-[85vh] flex items-center justify-center px-6 relative overflow-hidden pt-20">
       
       <div className="container mx-auto max-w-6xl grid md:grid-cols-2 gap-12 items-center relative z-10">
         
@@ -28,13 +45,35 @@ const Banner = () => {
               I AM
             </motion.p>
 
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-              Monwar Hossan Himel, 
-            </h2>
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold mb-4 text-white"
+              variants={sentenceVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {nameText.split("").map((char, index) => (
+                <motion.span key={index} variants={letterVariants}>
+                  {char}
+                </motion.span>
+              ))}
+            </motion.h2>
             
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">{titleText}</span>
-            </h1>
+            <motion.h1 
+              className="text-4xl md:text-5xl font-bold mb-6"
+              variants={sentenceVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {titleText.split("").map((char, index) => (
+                <motion.span 
+                  key={index} 
+                  variants={letterVariants}
+                  className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent inline-block"
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </motion.h1>
 
             <p className="text-gray-400 mb-8 max-w-lg leading-relaxed">
               <span className="text-cyan-400">web development</span> expertise. It serves as a powerful tool to demonstrate technical capabilities.
@@ -45,7 +84,7 @@ const Banner = () => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 cursor-pointer inline-flex items-center gap-2 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 border-0"
+                  className="border-2 border-cyan-500/30 hover:border-cyan-400 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 cursor-pointer inline-flex items-center gap-2 hover:bg-cyan-500/10"
                 >
                   More About Us
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -118,41 +157,43 @@ const Banner = () => {
         </div>
 
         {/* Image Content with Large Text and Circular Badge */}
-        <div className="relative flex justify-center items-center">
+        <div className="flex justify-center items-center md:justify-end relative">
           
-          {/* Large "Web Developer" Text Behind Profile */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="absolute inset-0 flex items-center justify-center text-center"
-            style={{ zIndex: 1 }}
-          >
-            <h1 className="text-[100px] md:text-[180px] font-bold leading-none whitespace-nowrap" style={{
-              color: 'transparent',
-              WebkitTextStroke: '1px rgba(255, 255, 255, 0.1)',
-              userSelect: 'none',
-            }}>
-              Web <br /> Developer
-            </h1>
-          </motion.div>
+          <div className="relative">
+            {/* Large "Web Developer" Text Behind Profile */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-[200%]"
+              style={{ zIndex: 0 }}
+            >
+              <h1 className="text-[60px] md:text-[100px] font-bold leading-none whitespace-nowrap" style={{
+                color: 'transparent',
+                WebkitTextStroke: '1px rgba(255, 255, 255, 0.1)',
+                userSelect: 'none',
+              }}>
+                Web <br /> Developer
+              </h1>
+            </motion.div>
 
-          {/* Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative z-10"
-          >
-            <div className="relative w-72 h-72 md:w-96 md:h-96">
-              <img 
-                src={profileImage} 
-                alt="Monwar Hossan Himel" 
-                className="w-full h-full object-cover"
-                style={{ clipPath: 'none' }}
-              />
-            </div>
-          </motion.div>
+            {/* Profile Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="relative z-10"
+            >
+              <div className="relative w-72 h-72 md:w-96 md:h-96">
+                <img 
+                  src={profileImage} 
+                  alt="Monwar Hossan Himel" 
+                  className="w-full h-full object-cover"
+                  style={{ clipPath: 'none' }}
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

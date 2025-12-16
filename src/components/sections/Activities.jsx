@@ -21,7 +21,7 @@ const Activities = () => {
   ];
 
   return (
-    <section id="activities" className="py-20 bg-dark">
+    <section id="activities" className="py-20 bg-transparent">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
@@ -50,8 +50,7 @@ const Activities = () => {
               transition={{ delay: idx * 0.1, duration: 0.6, type: "spring" }}
               whileHover={{ 
                 x: 10,
-                boxShadow: '0 20px 40px rgba(6, 182, 212, 0.2)',
-                borderColor: 'rgba(6, 182, 212, 0.6)'
+                boxShadow: '0 20px 40px -15px rgba(6, 182, 212, 0.3)',
               }}
               className="border-2 border-cyan-500/30 bg-[#112240]/50 backdrop-blur-sm rounded-lg p-6 transition-all duration-300 cursor-pointer"
             >

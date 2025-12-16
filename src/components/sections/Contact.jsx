@@ -33,7 +33,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-dark relative overflow-hidden">
+    <section id="contact" className="py-20 bg-transparent relative overflow-hidden">
       
       <div className="container mx-auto px-4">
         {/* Section Header */}
@@ -123,7 +123,7 @@ const Contact = () => {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-600 hover:to-cyan-500 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg shadow-cyan-500/50 flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg shadow-cyan-500/50 flex items-center justify-center gap-2"
               >
                 Send Message <FaPaperPlane className="text-sm" />
               </motion.button>
@@ -192,7 +192,7 @@ const Contact = () => {
                   href="https://github.com/himel2535"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center justify-center gap-3 bg-[#0a192f]/50 border border-cyan-500/20 hover:border-cyan-500 rounded-lg p-6 transition-all duration-300 group hover:shadow-lg hover:shadow-cyan-500/10"
+                  className="flex flex-col items-center justify-center gap-3 bg-[#0a192f]/50 border border-cyan-500/20 rounded-lg p-6 transition-all duration-300 group hover:shadow-[0_20px_30px_-10px_rgba(6,182,212,0.3)] hover:-translate-y-2 cursor-pointer"
                 >
                   <FaGithub className="text-3xl text-gray-400 group-hover:text-white transition-colors" />
                   <span className="text-sm text-gray-400 group-hover:text-white transition-colors">GitHub</span>
@@ -203,7 +203,7 @@ const Contact = () => {
                   href="https://www.linkedin.com/in/monwar-hossan-himel/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center justify-center gap-3 bg-[#0a192f]/50 border border-cyan-500/20 hover:border-cyan-500 rounded-lg p-6 transition-all duration-300 group hover:shadow-lg hover:shadow-cyan-500/10"
+                  className="flex flex-col items-center justify-center gap-3 bg-[#0a192f]/50 border border-cyan-500/20 rounded-lg p-6 transition-all duration-300 group hover:shadow-[0_20px_30px_-10px_rgba(6,182,212,0.3)] hover:-translate-y-2 cursor-pointer"
                 >
                   <FaLinkedin className="text-3xl text-gray-400 group-hover:text-cyan-500 transition-colors" />
                   <span className="text-sm text-gray-400 group-hover:text-white transition-colors">LinkedIn</span>
@@ -214,7 +214,7 @@ const Contact = () => {
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center justify-center gap-3 bg-[#0a192f]/50 border border-cyan-500/20 hover:border-cyan-500 rounded-lg p-6 transition-all duration-300 group hover:shadow-lg hover:shadow-cyan-500/10"
+                  className="flex flex-col items-center justify-center gap-3 bg-[#0a192f]/50 border border-cyan-500/20 rounded-lg p-6 transition-all duration-300 group hover:shadow-[0_20px_30px_-10px_rgba(6,182,212,0.3)] hover:-translate-y-2 cursor-pointer"
                 >
                   <FaTwitter className="text-3xl text-gray-400 group-hover:text-cyan-500 transition-colors" />
                   <span className="text-sm text-gray-400 group-hover:text-white transition-colors">Twitter</span>
@@ -223,7 +223,7 @@ const Contact = () => {
                 {/* Email */}
                 <a
                   href="mailto:monwarhossanhimel@gmail.com"
-                  className="flex flex-col items-center justify-center gap-3 bg-[#0a192f]/50 border border-cyan-500/20 hover:border-cyan-500 rounded-lg p-6 transition-all duration-300 group hover:shadow-lg hover:shadow-cyan-500/10"
+                  className="flex flex-col items-center justify-center gap-3 bg-[#0a192f]/50 border border-cyan-500/20 rounded-lg p-6 transition-all duration-300 group hover:shadow-[0_20px_30px_-10px_rgba(6,182,212,0.3)] hover:-translate-y-2 cursor-pointer"
                 >
                   <FaEnvelope className="text-3xl text-gray-400 group-hover:text-cyan-500 transition-colors" />
                   <span className="text-sm text-gray-400 group-hover:text-white transition-colors">Email</span>

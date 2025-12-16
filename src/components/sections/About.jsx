@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section id="about" className="py-24 bg-gray-900 text-gray-300">
+    <section id="about" className="py-24 bg-transparent text-gray-300">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
@@ -50,7 +50,7 @@ const About = () => {
             transition={{ duration: 0.8, type: "spring" }}
             whileHover={{ 
               y: -10,
-              boxShadow: '0 20px 40px rgba(6, 182, 212, 0.2)',
+              boxShadow: '0 20px 40px -15px rgba(6, 182, 212, 0.3)',
             }}
             className="bg-[#112240]/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-8 transition-all duration-300 cursor-pointer"
           >
