@@ -19,25 +19,12 @@ const Education = () => {
     <section id="education" className="py-20 bg-transparent">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <motion.h2
-            className="text-4xl font-bold text-white mb-4"
-            whileHover={{ scale: 1.05, color: '#06b6d4' }}
-            transition={{ duration: 0.3 }}
-          >
-            My Education
-          </motion.h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Academic journey and qualifications
-          </p>
-        </motion.div>
-        <div className="space-y-6">
+        <div className="text-center mb-16 relative">
+          <h2 className="text-5xl font-bold text-white mb-8">My Education</h2>
+          <div className="w-0.5 h-16 bg-gradient-to-b from-cyan-500 to-transparent mx-auto absolute left-1/2 -bottom-16 transform -translate-x-1/2"></div>
+        </div>
+
+        <div className="space-y-6 mt-20">
           {education.map((edu, idx) => (
             <motion.div
               key={idx}
@@ -49,7 +36,7 @@ const Education = () => {
                 x: 10,
                 boxShadow: '0 20px 40px -15px rgba(6, 182, 212, 0.3)',
               }}
-              className="border-2 border-cyan-500/30 bg-[#112240]/50 backdrop-blur-sm rounded-lg p-6 transition-all duration-300 cursor-pointer"
+              className="shadow-lg shadow-cyan-500/10 bg-[#112240]/50 backdrop-blur-sm rounded-lg p-6 transition-all duration-300 cursor-pointer"
             >
               <h3 className="text-xl font-semibold text-white mb-2">{edu.degree}</h3>
               <p className="text-cyan-400">{edu.institution} – {edu.location}</p>

@@ -59,20 +59,14 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20 bg-transparent">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <motion.h2 
-            className="text-4xl font-bold text-white mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent inline-block"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          >
-            My Skills
-          </motion.h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            A comprehensive overview of my technical expertise and proficiency levels
-          </p>
+        {/* Section Header */}
+        <div className="text-center mb-16 relative">
+          <h2 className="text-5xl font-bold text-white mb-8">My Skills</h2>
+          <div className="w-0.5 h-16 bg-gradient-to-b from-cyan-500 to-transparent mx-auto absolute left-1/2 -bottom-16 transform -translate-x-1/2"></div>
         </div>
+
         {/* Skills Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-20">
         {skillCategories.map((category, catIndex) => (
           <motion.div
             key={catIndex}
@@ -85,7 +79,7 @@ const Skills = () => {
               scale: 1.03,
               boxShadow: '0 20px 40px -15px rgba(6, 182, 212, 0.3)'
             }}
-            className="bg-[#112240]/50 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-6 transition-all duration-300 cursor-pointer"
+            className="bg-[#112240]/50 backdrop-blur-sm shadow-xl shadow-cyan-500/10 rounded-2xl p-6 transition-all duration-300 cursor-pointer"
           >
               {/* Category Header */}
               <div className="flex items-center gap-2 mb-6">

@@ -6,23 +6,12 @@ const About = () => {
     <section id="about" className="py-24 bg-transparent text-gray-300">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <motion.h2 
-            className="text-4xl font-bold text-white mb-4"
-            whileHover={{ scale: 1.05, color: '#06b6d4' }}
-            transition={{ duration: 0.3 }}
-          >
-            About Me
-          </motion.h2>
-        </motion.div>
+        <div className="text-center mb-16 relative">
+          <h2 className="text-5xl font-bold text-white mb-8">About Me</h2>
+          <div className="w-0.5 h-16 bg-gradient-to-b from-cyan-500 to-transparent mx-auto absolute left-1/2 -bottom-16 transform -translate-x-1/2"></div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-20">
 
           {/* Left Column - Introduction */}
           <motion.div
@@ -52,7 +41,7 @@ const About = () => {
               y: -10,
               boxShadow: '0 20px 40px -15px rgba(6, 182, 212, 0.3)',
             }}
-            className="bg-[#112240]/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-8 transition-all duration-300 cursor-pointer"
+            className="bg-[#112240]/50 backdrop-blur-sm shadow-xl shadow-cyan-500/10 rounded-xl p-8 transition-all duration-300 cursor-pointer"
           >
             <h3 className="text-2xl font-semibold text-white mb-6 border-b border-gray-700 pb-2">
               Personal Info

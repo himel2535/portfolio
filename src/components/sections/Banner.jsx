@@ -24,12 +24,12 @@ const Banner = () => {
   };
 
   return (
-    <section id="hero" className="min-h-[85vh] flex items-center justify-center px-6 relative overflow-hidden pt-20">
+    <section id="hero" className="min-h-[85vh] flex items-center justify-center px-6 relative overflow-hidden pt-32 md:pt-20">
       
       <div className="container mx-auto max-w-6xl grid md:grid-cols-2 gap-12 items-center relative z-10">
         
         {/* Text Content */}
-        <div className="text-left">
+        <div className="text-center md:text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ const Banner = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-cyan-400 text-sm font-medium mb-4 tracking-wider uppercase"
+              className="text-cyan-400 text-lg md:text-sm font-medium mb-4 tracking-wider uppercase"
             >
               I AM
             </motion.p>
@@ -59,7 +59,7 @@ const Banner = () => {
             </motion.h2>
             
             <motion.h1 
-              className="text-4xl md:text-5xl font-bold mb-6"
+              className="text-3xl md:text-4xl font-semibold mb-6"
               variants={sentenceVariants}
               initial="hidden"
               animate="visible"
@@ -75,16 +75,16 @@ const Banner = () => {
               ))}
             </motion.h1>
 
-            <p className="text-gray-400 mb-8 max-w-lg leading-relaxed">
+            <p className="text-gray-400 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
               <span className="text-cyan-400">web development</span> expertise. It serves as a powerful tool to demonstrate technical capabilities.
             </p>
             
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4">
               <Link to="about" smooth={true} duration={500}>
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="border-2 border-cyan-500/30 hover:border-cyan-400 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 cursor-pointer inline-flex items-center gap-2 hover:bg-cyan-500/10"
+                  className="border-2 border-cyan-500/30 hover:border-cyan-400 text-white font-medium py-3 px-5 md:px-8 rounded-full transition-all duration-300 cursor-pointer inline-flex items-center gap-2 hover:bg-cyan-500/10 text-sm md:text-base"
                 >
                   More About Us
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -100,7 +100,7 @@ const Banner = () => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="border-2 border-cyan-500/30 hover:border-cyan-400 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 cursor-pointer inline-flex items-center gap-2 hover:bg-cyan-500/10"
+                  className="border-2 border-cyan-500/30 hover:border-cyan-400 text-white font-medium py-3 px-5 md:px-8 rounded-full transition-all duration-300 cursor-pointer inline-flex items-center gap-2 hover:bg-cyan-500/10 text-sm md:text-base"
                 >
                   Download CV
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,7 +113,7 @@ const Banner = () => {
             {/* Social Links */}
             <div className="mt-12">
               <p className="text-gray-400 text-sm mb-4">Find me on</p>
-              <div className="flex gap-4">
+              <div className="flex justify-center md:justify-start gap-4">
                 {/* Email */}
                 <a 
                   href="mailto:monwarhossanhimel@gmail.com"
@@ -197,6 +197,7 @@ const Banner = () => {
         </div>
       </div>
     </section>
+
   );
 };
 
