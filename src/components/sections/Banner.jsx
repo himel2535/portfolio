@@ -46,7 +46,7 @@ const Banner = () => {
             </motion.p> */}
 
             <motion.h2 
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white whitespace-nowrap"
+              className="text-3xl sm:text-5xl md:text-5xl font-bold mb-4 text-white whitespace-nowrap"
               variants={sentenceVariants}
               initial="hidden"
               animate="visible"
