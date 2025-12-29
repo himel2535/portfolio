@@ -46,7 +46,7 @@ const Banner = () => {
             </motion.p> */}
 
             <motion.h2 
-              className="text-4xl md:text-5xl font-bold mb-4 text-white"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white whitespace-nowrap"
               variants={sentenceVariants}
               initial="hidden"
               animate="visible"
@@ -63,7 +63,7 @@ const Banner = () => {
             </motion.h2>
             
             <motion.h1 
-              className="text-3xl md:text-4xl font-semibold mb-6"
+              className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 whitespace-nowrap"
               variants={sentenceVariants}
               initial="hidden"
               animate="visible"
