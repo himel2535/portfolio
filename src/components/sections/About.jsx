@@ -18,7 +18,7 @@ const About = () => {
             initial={{ opacity: 0, x: -50, scale: 0.95 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, type: "spring" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h2 className="text-3xl md:text-3xl font-bold text-white mb-6">
               Hi, I'm Monwar Hossan Himel
@@ -36,7 +36,7 @@ const About = () => {
             initial={{ opacity: 0, x: 50, scale: 0.95 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, type: "spring" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             whileHover={{ 
               y: -10,
               boxShadow: '0 20px 40px -15px rgba(6, 182, 212, 0.3)',

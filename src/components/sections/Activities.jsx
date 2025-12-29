@@ -37,7 +37,7 @@ const Activities = () => {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
+              transition={{ delay: index * 0.1, duration: 0.8, ease: "easeOut" }}
               whileHover={{ 
                 x: 10,
                 boxShadow: '0 10px 30px -10px rgba(6, 182, 212, 0.2)',

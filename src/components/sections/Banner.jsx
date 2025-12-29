@@ -98,7 +98,7 @@ const Banner = () => {
               </Link>
 
               <a 
-                href="/Full-Stack-Resume.pdf" 
+                href="/Himel_Resume_Full-Stack.pdf" 
                 download
               >
                 <motion.button 

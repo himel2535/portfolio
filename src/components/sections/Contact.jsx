@@ -68,6 +68,7 @@ const Contact = () => {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="bg-[#112240]/50 backdrop-blur-sm shadow-xl shadow-cyan-500/10 rounded-2xl p-8"
           >
             <form ref={form} onSubmit={handleSubmit} className="space-y-6">
@@ -134,6 +135,7 @@ const Contact = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-6"
           >
             {/* Contact Information Card */}

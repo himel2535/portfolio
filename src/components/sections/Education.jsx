@@ -31,7 +31,7 @@ const Education = () => {
               initial={{ opacity: 0, x: -50, scale: 0.95 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.15, duration: 0.6, type: "spring" }}
+              transition={{ delay: idx * 0.1, duration: 0.8, ease: "easeOut" }}
               whileHover={{ 
                 x: 10,
                 boxShadow: '0 20px 40px -15px rgba(6, 182, 212, 0.3)',
