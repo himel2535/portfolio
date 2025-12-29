@@ -5,7 +5,7 @@ const Activities = () => {
   const activities = [
     {
       title: 'Captain (Former)',
-      organization: 'Jahangirnagar University Central Cricket Team',
+      organization: 'Jahangirnagar University CSE Cricket Team',
       period: '2022 – 2023',
     },
     {
@@ -25,7 +25,7 @@ const Activities = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16 relative">
-          <h2 className="text-5xl font-bold text-white mb-8">Activities</h2>
+          <h2 className="text-4xl font-bold text-white mb-8">Activities</h2>
           <div className="w-0.5 h-16 bg-gradient-to-b from-cyan-500 to-transparent mx-auto absolute left-1/2 -bottom-16 transform -translate-x-1/2"></div>
         </div>
 

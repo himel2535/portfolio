@@ -5,7 +5,7 @@ import profileImage from '../../assets/profileImage.jpg';
 
 const Banner = () => {
   const titleText = "Full-Stack Developer";
-  const nameText = "Monwar Hossan Himel,";
+  const nameText = "Monwar Hossan Himel";
 
   const letterVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -35,15 +35,15 @@ const Banner = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            {/* I AM label */}
+            {/* I AM label
             <motion.p
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-cyan-400 text-lg md:text-sm font-medium mb-4 tracking-wider uppercase"
+              className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent inline-block text-lg md:text-sm font-medium mb-4 tracking-wider uppercase"
             >
               I AM
-            </motion.p>
+            </motion.p> */}
 
             <motion.h2 
               className="text-4xl md:text-5xl font-bold mb-4 text-white"
@@ -52,8 +52,12 @@ const Banner = () => {
               animate="visible"
             >
               {nameText.split("").map((char, index) => (
-                <motion.span key={index} variants={letterVariants}>
-                  {char}
+                <motion.span 
+                  key={index} 
+                  variants={letterVariants}
+                  className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent inline-block"
+                >
+                  {char === " " ? "\u00A0" : char}
                 </motion.span>
               ))}
             </motion.h2>
@@ -68,15 +72,15 @@ const Banner = () => {
                 <motion.span 
                   key={index} 
                   variants={letterVariants}
-                  className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent inline-block"
+                  className="text-white inline-block"
                 >
                   {char === " " ? "\u00A0" : char}
                 </motion.span>
               ))}
             </motion.h1>
 
-            <p className="text-gray-400 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
-              <span className="text-cyan-400">web development</span> expertise. It serves as a powerful tool to demonstrate technical capabilities.
+            <p className="text-gray-400 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed italic">
+              "Dedicated to crafting high-performance, user-centric web applications with a focus on clean code and modern aesthetics using the MERN stack."
             </p>
             
             <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4">

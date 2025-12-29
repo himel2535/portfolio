@@ -58,12 +58,13 @@ const Experience = () => {
 
         {/* Experience Section */}
         <div>
-          <span className="text-sm tracking-widest uppercase text-gray-500 mb-4 block">03 / Experience</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
-            Experience that shapes meaningful design
-          </h2>
+           {/* Section Header */}
+        <div className="text-center mb-16 relative">
+          <h2 className="text-4xl font-bold text-white mb-8">My Experience</h2>
+          <div className="w-0.5 h-16 bg-gradient-to-b from-cyan-500 to-transparent mx-auto absolute left-1/2 -bottom-16 transform -translate-x-1/2"></div>
+        </div>
 
-          <div className="space-y-8">
+          <div className="space-y-8 mt-20">
             {experiences.map((exp, index) => (
               <div key={index} className="group flex flex-col md:flex-row justify-between items-start md:items-center border-b border-white/10 pb-8 hover:border-primary/50 transition-colors">
                 <div className="mb-4 md:mb-0">

@@ -7,7 +7,7 @@ const About = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16 relative">
-          <h2 className="text-5xl font-bold text-white mb-8">About Me</h2>
+          <h2 className="text-4xl font-bold text-white mb-8">About Me</h2>
           <div className="w-0.5 h-16 bg-gradient-to-b from-cyan-500 to-transparent mx-auto absolute left-1/2 -bottom-16 transform -translate-x-1/2"></div>
         </div>
 
@@ -20,7 +20,7 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, type: "spring" }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-3xl font-bold text-white mb-6">
               Hi, I'm Monwar Hossan Himel
             </h2>
             <p className="text-lg md:text-xl leading-relaxed mb-6">
@@ -54,7 +54,10 @@ const About = () => {
                 <strong>Open For:</strong> Internship / Freelance Projects / Junior Roles
               </li>
               <li>
-                <strong>Skills:</strong> Next.js, React, Node.js, Express, MongoDB, TailwindCSS, UI/UX Design
+                <strong>Skills:</strong> HTML5, CSS3, JavaScript, React, Next.js, Node.js, Express, MongoDB, Mongoose, Firebase, TypeScript, Tailwind CSS, DaisyUI, JWT, Stripe
+              </li>
+              <li>
+                <strong>Tools:</strong> GitHub, VS Code, Postman, Thunderclient, ImgBB, Cloudinary, Communication
               </li>
               <li>
                 <strong>Experience:</strong> Designing and developing web apps with modern tech stack

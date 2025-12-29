@@ -121,7 +121,7 @@ const Footer = () => {
                 <FaMapMarkerAlt className="text-purple-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-gray-400 text-sm">
-                    Dhaka, Kishoreganj
+                     Kishoreganj,Dhaka
                   </p>
                 </div>
               </li>

@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
+import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
 
 const Contact = () => {
+  const form = useRef();
+  const [isSending, setIsSending] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,17 +22,32 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     if (!formData.name || !formData.email || !formData.message) {
       toast.error("Please fill in all fields!");
       return;
     }
-    toast.success("Message sent successfully!", {
-      style: {
-        background: "#8B5CF6",
-        color: "#fff"
-      },
-    });
-    setFormData({ name: '', email: '', message: '' });
+
+    setIsSending(true);
+
+    // [IMPORTANT] Replace these placeholders with your actual EmailJS credentials
+    // SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
+      .then((result) => {
+          toast.success("Message sent successfully!", {
+            style: {
+              background: "#112240",
+              color: "#67e8f9",
+              border: "1px solid rgba(6, 182, 212, 0.2)"
+            },
+          });
+          setFormData({ name: '', email: '', message: '' });
+          setIsSending(false);
+      }, (error) => {
+          console.error(error.text);
+          toast.error("Failed to send message. Please try again later.");
+          setIsSending(false);
+      });
   };
 
   return (
@@ -38,7 +56,7 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16 relative">
-          <h2 className="text-5xl font-bold text-white mb-8">Get In Touch</h2>
+          <h2 className="text-4xl font-bold text-white mb-8">Get In Touch</h2>
           <div className="w-0.5 h-16 bg-gradient-to-b from-cyan-500 to-transparent mx-auto absolute left-1/2 -bottom-16 transform -translate-x-1/2"></div>
         </div>
 
@@ -52,7 +70,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="bg-[#112240]/50 backdrop-blur-sm shadow-xl shadow-cyan-500/10 rounded-2xl p-8"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               {/* Name Input */}
               <div>
                 <label className="block text-gray-300 text-sm font-medium mb-2">
@@ -64,7 +82,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your Name"
-                  className="w-full bg-[#0a192f]/50 border border-cyan-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/50 transition-all duration-300"
+                  className="w-full bg-[#0a192f]/50 border border-cyan-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-all duration-300"
                 />
               </div>
 
@@ -101,11 +119,12 @@ const Contact = () => {
               {/* Submit Button */}
               <motion.button
                 type="submit"
+                disabled={isSending}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg shadow-cyan-500/50 flex items-center justify-center gap-2"
+                className={`w-full bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer ${isSending ? 'opacity-70 cursor-wait' : ''}`}
               >
-                Send Message <FaPaperPlane className="text-sm" />
+                {isSending ? "Sending..." : "Send Message"} <FaPaperPlane className={`text-sm ${isSending ? 'animate-bounce' : ''}`} />
               </motion.button>
             </form>
           </motion.div>
@@ -189,15 +208,15 @@ const Contact = () => {
                   <span className="text-sm text-gray-400 group-hover:text-white transition-colors">LinkedIn</span>
                 </a>
 
-                {/* Twitter */}
+                {/* WhatsApp */}
                 <a
-                  href="https://twitter.com"
+                  href="https://wa.me/8801700000000"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex flex-col items-center justify-center gap-3 bg-[#0a192f]/50 border border-cyan-500/20 rounded-lg p-6 transition-all duration-300 group hover:shadow-[0_20px_30px_-10px_rgba(6,182,212,0.3)] hover:-translate-y-2 cursor-pointer"
                 >
-                  <FaTwitter className="text-3xl text-gray-400 group-hover:text-cyan-500 transition-colors" />
-                  <span className="text-sm text-gray-400 group-hover:text-white transition-colors">Twitter</span>
+                  <FaWhatsapp className="text-3xl text-gray-400 group-hover:text-green-500 transition-colors" />
+                  <span className="text-sm text-gray-400 group-hover:text-white transition-colors">WhatsApp</span>
                 </a>
 
                 {/* Email */}

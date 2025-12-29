@@ -10,7 +10,7 @@ const Projects = () => {
       title: "ContestHub - Ultimate Creative Platform",
       description: "A comprehensive role-based platform for managing creative contests with Stripe payments, TanStack Query for caching, and real-time dashboards for Admins, Creators, and Users.",
       image: "https://i.ibb.co.com/KM49yLs/Screen-Shot-2025-12-17-at-2-17-39-AM.png",
-      tags: ["React", "Node.js", "Express.js", "MongoDB", "Stripe", "Firebase", "JWT", "TanStack Query", "React Hook Form"],
+      tags: ["React", "Node.js", "Express.js", "MongoDB", "Stripe", "Firebase", "JWT", "TanStack Query", "React Hook Form", "HTML", "Tailwind CSS", "DaisyUI"],
       liveLink: "https://contest-hub-bfe54.web.app/",
       clientRepo: "https://github.com/himel2535/contestHub-frontend",
       serverRepo:"https://github.com/himel2535/contestHub-backend",
@@ -21,7 +21,7 @@ const Projects = () => {
       title: "Plant-Net - Nursery Management System",
       description: "A role-based nursery website where users can order plants, sellers can manage products, and admins oversee operations. Features secure authentication and real-time data management.",
       image: "/plant-net.png",
-      tags: ["React", "Node.js", "Express.js", "MongoDB", "Stripe", "Firebase", "TanStack Query", "JWT", "React Hook Form"],
+      tags: ["React", "Node.js", "Express.js", "MongoDB", "Stripe", "Firebase", "TanStack Query", "JWT", "React Hook Form", "HTML", "Tailwind CSS", "DaisyUI"],
       liveLink: "https://plant-net-32367.web.app/",
       clientRepo: "https://github.com/himel2535/plant-net",
       serverRepo: "https://github.com/himel2535/plant-net",
@@ -32,7 +32,7 @@ const Projects = () => {
       title: "AI Model Inventory Management System",
       description: "Full-stack MERN application with payment integration, admin dashboard, Firebase token authentication and inventory tracking.",
       image: "https://i.ibb.co.com/nqBgS3D6/AI-model-Cover-Photo.png",
-      tags: ["React", "Node.js", "MongoDB", "JWT", "Firebase"],
+      tags: ["React", "Node.js", "MongoDB", "JWT", "Firebase", "HTML", "Tailwind CSS", "DaisyUI", "Express.js"],
       liveLink: "https://ai-model-inventory-manag-45b01.web.app/",
       clientRepo: "https://github.com/himel2535/ai-model-inventory-manager-client",
       serverRepo: "https://github.com/himel2535/ai-model-inventory-manager-server",
@@ -42,17 +42,17 @@ const Projects = () => {
       title: "ToyVille - A ToyShop",
       description: "Connecting shoppers with toys using MERN stack. Includes user authentication and dynamic product management.",
       image: "https://i.ibb.co.com/xSTCRwRJ/Screen-Shot-2025-12-05-at-4-38-18-AM.png",
-      tags: ["React", "Tailwind", "Express", "MongoDB"],
+      tags: ["React", "Tailwind", "Express", "MongoDB", "HTML", "Tailwind CSS", "DaisyUI", "Express.js"],
       liveLink: "https://toyville-e37a0.web.app/",
       clientRepo: "https://github.com/himel2535/toyville",
       serverRepo: "https://github.com/himel2535/toyville",
       featured: true
     },
     {
-      title: "E-learning - Management System",
+      title: "AI Inventory Manager (Next.js)",
       description: "Developed a Next.js-based Book booking platform with server-side rendering, Firebase Authentication and SEO optimization.",
-      image: "https://i.ibb.co.com/RkzbdcYc/Screen-Shot-2025-12-05-at-4-46-28-AM.png",
-      tags: ["Next.js", "TypeScript", "Express", "MongoDB"],
+      image: "/project_image.png",
+      tags: ["Next.js", "TypeScript", "Express", "MongoDB", "HTML", "Tailwind CSS", "DaisyUI", "Express.js"],
       liveLink: "https://learning-store-next.vercel.app/",
       clientRepo: "https://github.com/himel2535/learning-store-next",
       serverRepo: "https://github.com/himel2535/learning-books-express",
@@ -60,7 +60,7 @@ const Projects = () => {
     }
   ];
 
-  const filterTabs = ["All", "React", "Node.js", "MongoDB", "Stripe", "Firebase", "Next.js", "TypeScript"];
+  const filterTabs = ["All", "React", "Node.js", "MongoDB", "Stripe", "Firebase", "Next.js", "TypeScript", "JavaScript", "JWT", "Express.js", "Mongoose"];
 
   const filteredProjects = activeFilter === 'All' 
     ? projects 
@@ -71,7 +71,7 @@ const Projects = () => {
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16 relative">
-          <h2 className="text-5xl font-bold text-white mb-8">Projects</h2>
+          <h2 className="text-4xl font-bold text-white mb-8">Projects</h2>
           {/* Vertical indicator line */}
           <div className="w-0.5 h-16 bg-gradient-to-b from-cyan-500 to-transparent mx-auto absolute left-1/2 -bottom-16 transform -translate-x-1/2"></div>
         </div>
@@ -95,7 +95,7 @@ const Projects = () => {
 
         {/* Projects List - Alternating Layout */}
         <div className="space-y-32">
-          <AnimatePresence mode='wait'>
+          <AnimatePresence>
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.title}

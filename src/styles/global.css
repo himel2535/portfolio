@@ -26,5 +26,21 @@ body {
 html, body {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  background-color: #0a192f;
+  background-color: #000;
+}
+
+/* Global Interactive Styles */
+button, 
+a, 
+[role="button"],
+.btn,
+.menu-item,
+input[type="submit"],
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button {
+  transition: all 0.3s ease;
 }

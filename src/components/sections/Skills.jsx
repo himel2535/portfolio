@@ -7,7 +7,10 @@ import {
   FaReact, 
   FaNodeJs,
   FaGithub,
-  FaCode
+  FaCode,
+  FaImage,
+  FaUsers,
+  FaBolt
 } from 'react-icons/fa';
 import { 
   SiNextdotjs, 
@@ -15,7 +18,9 @@ import {
   SiTailwindcss, 
   SiExpress, 
   SiMongodb,
-  SiPostman
+  SiPostman,
+  SiCloudinary,
+  SiMongoose
 } from 'react-icons/si';
 
 const Skills = () => {
@@ -25,13 +30,13 @@ const Skills = () => {
       color: "blue",
       dotColor: "bg-blue-500",
       skills: [
-        { name: "HTML5", percentage: 90, icon: FaHtml5, color: "#E34F26" },
-        { name: "CSS3", percentage: 85, icon: FaCss3Alt, color: "#1572B6" },
-        { name: "JavaScript", percentage: 88, icon: FaJs, color: "#F7DF1E" },
-        { name: "React", percentage: 90, icon: FaReact, color: "#61DAFB" },
-        { name: "Next.js", percentage: 75, icon: SiNextdotjs, color: "#ffffff" },
-        { name: "TypeScript", percentage: 70, icon: SiTypescript, color: "#3178C6" },
-        { name: "Tailwind CSS", percentage: 90, icon: SiTailwindcss, color: "#06B6D4" },
+        { name: "HTML5", percentage: 98, icon: FaHtml5, color: "#E34F26" },
+        { name: "CSS3", percentage: 95, icon: FaCss3Alt, color: "#1572B6" },
+        { name: "JavaScript", percentage: 97, icon: FaJs, color: "#F7DF1E" },
+        { name: "React", percentage: 98, icon: FaReact, color: "#61DAFB" },
+        { name: "Next.js", percentage: 92, icon: SiNextdotjs, color: "#ffffff" },
+        { name: "TypeScript", percentage: 90, icon: SiTypescript, color: "#3178C6" },
+        { name: "Tailwind CSS", percentage: 98, icon: SiTailwindcss, color: "#06B6D4" },
       ]
     },
     {
@@ -39,9 +44,10 @@ const Skills = () => {
       color: "green",
       dotColor: "bg-green-500",
       skills: [
-        { name: "Node.js", percentage: 85, icon: FaNodeJs, color: "#339933" },
-        { name: "Express", percentage: 85, icon: SiExpress, color: "#ffffff" },
-        { name: "MongoDB", percentage: 80, icon: SiMongodb, color: "#47A248" },
+        { name: "Node.js", percentage: 96, icon: FaNodeJs, color: "#339933" },
+        { name: "Express", percentage: 96, icon: SiExpress, color: "#ffffff" },
+        { name: "MongoDB", percentage: 94, icon: SiMongodb, color: "#47A248" },
+        { name: "Mongoose", percentage: 92, icon: SiMongoose, color: "#880000" },
       ]
     },
     {
@@ -49,9 +55,13 @@ const Skills = () => {
       color: "orange",
       dotColor: "bg-orange-500",
       skills: [
-        { name: "GitHub", percentage: 90, icon: FaGithub, color: "#ffffff" },
-        { name: "VS Code", percentage: 95, icon: FaCode, color: "#007ACC" },
-        { name: "Postman", percentage: 80, icon: SiPostman, color: "#FF6C37" },
+        { name: "GitHub", percentage: 98, icon: FaGithub, color: "#ffffff" },
+        { name: "VS Code", percentage: 99, icon: FaCode, color: "#007ACC" },
+        { name: "Postman", percentage: 93, icon: SiPostman, color: "#FF6C37" },
+        { name: "Thunderclient", percentage: 95, icon: FaBolt, color: "#50BFE6" },
+        { name: "ImgBB", percentage: 90, icon: FaImage, color: "#2E4057" },
+        { name: "Cloudinary", percentage: 88, icon: SiCloudinary, color: "#3448C5" },
+        { name: "Communication", percentage: 95, icon: FaUsers, color: "#ffffff" },
       ]
     }
   ];
@@ -61,7 +71,7 @@ const Skills = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16 relative">
-          <h2 className="text-5xl font-bold text-white mb-8">My Skills</h2>
+          <h2 className="text-4xl font-bold text-white mb-8">My Skills</h2>
           <div className="w-0.5 h-16 bg-gradient-to-b from-cyan-500 to-transparent mx-auto absolute left-1/2 -bottom-16 transform -translate-x-1/2"></div>
         </div>
 
