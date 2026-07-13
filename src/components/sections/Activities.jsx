@@ -1,5 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import {
+  viewportOnce,
+  staggerContainer,
+  fadeUpItem,
+  microTransition,
+  easeOutExpo,
+  duration,
+} from '../../lib/motion';
 
 const Activities = () => {
   const activities = [
@@ -21,35 +29,45 @@ const Activities = () => {
   ];
 
   return (
-    <section id="activities" className="py-20 bg-transparent">
-      <div className="container mx-auto px-4">
+    <section id="activities" className="section-shell bg-transparent">
+      <div className="section-inner">
         {/* Section Header */}
-        <div className="text-center mb-16 relative">
-          <h2 className="text-4xl font-bold text-white mb-8">Activities</h2>
-          <div className="w-0.5 h-16 bg-gradient-to-b from-cyan-500 to-transparent mx-auto absolute left-1/2 -bottom-16 transform -translate-x-1/2"></div>
-        </div>
+        <motion.div
+          className="text-center mb-12 sm:mb-14 md:mb-16 relative"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportOnce}
+          transition={{ duration: duration.entrance, ease: easeOutExpo }}
+        >
+          <h2 className="section-heading">Activities</h2>
+          <div className="section-rule"></div>
+        </motion.div>
 
         {/* Activities List */}
-        <div className="max-w-4xl mx-auto space-y-6 mt-20">
+        <motion.div
+          className="max-w-4xl mx-auto space-y-6 mt-14 sm:mt-16 md:mt-20"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {activities.map((activity, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.8, ease: "easeOut" }}
-              whileHover={{ 
-                x: 10,
-                boxShadow: '0 10px 30px -10px rgba(6, 182, 212, 0.2)',
+              variants={fadeUpItem}
+              whileHover={{
+                x: 8,
+                boxShadow: '0 10px 30px -10px rgba(22, 160, 133, 0.2)',
               }}
-              className="bg-[#112240]/50 backdrop-blur-sm shadow-lg shadow-cyan-500/10 rounded-xl p-6 transition-all duration-300 cursor-pointer"
+              transition={microTransition}
+              className="glass-card-soft shadow-lg shadow-brand/10 rounded-2xl p-5 sm:p-6 cursor-pointer"
             >
               <h3 className="text-xl font-semibold text-white">{activity.title}</h3>
               <p className="text-gray-400">{activity.organization}</p>
               <p className="text-gray-500 text-sm">{activity.period}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,177 +1,189 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaExternalLinkAlt } from 'react-icons/fa';
+import {
+  viewportOnce,
+  staggerContainer,
+  fadeUpItem,
+  microTransition,
+  easeOutExpo,
+  duration,
+} from '../../lib/motion';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
 
   const projects = [
     {
-      title: "ContestHub - Ultimate Creative Platform",
-      description: "A comprehensive role-based platform for managing creative contests with Stripe payments, TanStack Query for caching, and real-time dashboards for Admins, Creators, and Users.",
-      image: "https://i.ibb.co.com/KM49yLs/Screen-Shot-2025-12-17-at-2-17-39-AM.png",
-      tags: ["React", "Node.js", "Express.js", "MongoDB", "Stripe", "Firebase", "JWT", "TanStack Query", "React Hook Form", "HTML", "Tailwind CSS", "DaisyUI"],
-      liveLink: "https://contest-hub-bfe54.web.app/",
-      clientRepo: "https://github.com/himel2535/contestHub-frontend",
-      serverRepo:"https://github.com/himel2535/contestHub-backend",
-      category: "Full Stack",
-      featured: true
+      title: 'ContestHub – Creative Contest Management Platform',
+      description:
+        'Production-grade contest management platform enabling creators to host contests, participants to securely compete, and admins to manage approvals and moderation. Features a full RBAC system (Admin, Contest Creator, Normal User), Stripe payments, TanStack Query caching, dynamic leaderboards, and MongoDB indexing/pagination — supporting 100+ concurrent sessions and 500+ contest records.',
+      image: 'https://i.ibb.co.com/KM49yLs/Screen-Shot-2025-12-17-at-2-17-39-AM.png',
+      tags: [
+        'React',
+        'Tailwind CSS',
+        'TanStack Query',
+        'Node.js',
+        'Express.js',
+        'MongoDB',
+        'Firebase',
+        'JWT',
+        'Stripe',
+        'Framer Motion',
+      ],
+      liveLink: 'https://contest-hub-bfe54.web.app/',
+      clientRepo: 'https://github.com/himel2535/contestHub-frontend',
+      serverRepo: 'https://github.com/himel2535/contestHub-backend',
+      featured: true,
     },
     {
-      title: "Plant-Net - Nursery Management System",
-      description: "A role-based nursery website where users can order plants, sellers can manage products, and admins oversee operations. Features secure authentication and real-time data management.",
-      image: "/plant-net.png",
-      tags: ["React", "Node.js", "Express.js", "MongoDB", "Stripe", "Firebase", "TanStack Query", "JWT", "React Hook Form", "HTML", "Tailwind CSS", "DaisyUI"],
-      liveLink: "https://plant-net-32367.web.app/",
-      clientRepo: "https://github.com/himel2535/plant-net",
-      serverRepo: "https://github.com/himel2535/plant-net",
-      category: "Full Stack",
-      featured: true
+      title: 'AI Model Inventory Manager',
+      description:
+        'Role-based AI model marketplace allowing users to upload, publish, purchase, and track AI models while administrators review and approve submissions. Secured with Firebase Authentication and JWT across 15+ RESTful endpoints, with purchase tracking and contributor analytics covering 100+ listed models.',
+      image: 'https://i.ibb.co.com/nqBgS3D6/AI-model-Cover-Photo.png',
+      tags: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Firebase', 'JWT'],
+      liveLink: 'https://ai-model-inventory-manag-45b01.web.app/',
+      clientRepo: 'https://github.com/himel2535/ai-model-inventory-manager-client',
+      serverRepo: 'https://github.com/himel2535/ai-model-inventory-manager-server',
+      featured: true,
     },
     {
-      title: "AI Model Inventory Management System",
-      description: "Full-stack MERN application with payment integration, admin dashboard, Firebase token authentication and inventory tracking.",
-      image: "https://i.ibb.co.com/nqBgS3D6/AI-model-Cover-Photo.png",
-      tags: ["React", "Node.js", "MongoDB", "JWT", "Firebase", "HTML", "Tailwind CSS", "DaisyUI", "Express.js"],
-      liveLink: "https://ai-model-inventory-manag-45b01.web.app/",
-      clientRepo: "https://github.com/himel2535/ai-model-inventory-manager-client",
-      serverRepo: "https://github.com/himel2535/ai-model-inventory-manager-server",
-      featured: true
+      title: 'Learning Books – E-Book Management System',
+      description:
+        'Full-stack CRUD-based learning platform for managing digital books through secure backend operations. Built with Next.js routing and SSR, Express REST APIs with ObjectId validation, and MongoDB — managing 200+ book records with robust error handling.',
+      image: '/project_image.png',
+      tags: ['Next.js', 'Node.js', 'Express.js', 'MongoDB'],
+      liveLink: 'https://learning-store-next.vercel.app/',
+      clientRepo: 'https://github.com/himel2535/learning-store-next',
+      serverRepo: 'https://github.com/himel2535/learning-books-express',
+      featured: true,
     },
-    {
-      title: "ToyVille - A ToyShop",
-      description: "Connecting shoppers with toys using MERN stack. Includes user authentication and dynamic product management.",
-      image: "https://i.ibb.co.com/xSTCRwRJ/Screen-Shot-2025-12-05-at-4-38-18-AM.png",
-      tags: ["React", "Tailwind", "Express", "MongoDB", "HTML", "Tailwind CSS", "DaisyUI", "Express.js"],
-      liveLink: "https://toyville-e37a0.web.app/",
-      clientRepo: "https://github.com/himel2535/toyville",
-      serverRepo: "https://github.com/himel2535/toyville",
-      featured: true
-    },
-    {
-      title: "AI Inventory Manager (Next.js)",
-      description: "Developed a Next.js-based Book booking platform with server-side rendering, Firebase Authentication and SEO optimization.",
-      image: "/project_image.png",
-      tags: ["Next.js", "TypeScript", "Express", "MongoDB", "HTML", "Tailwind CSS", "DaisyUI", "Express.js"],
-      liveLink: "https://learning-store-next.vercel.app/",
-      clientRepo: "https://github.com/himel2535/learning-store-next",
-      serverRepo: "https://github.com/himel2535/learning-books-express",
-      featured: false
-    }
   ];
 
-  const filterTabs = ["All", "React", "Node.js", "MongoDB", "Stripe", "Firebase", "Next.js", "TypeScript", "JavaScript", "JWT", "Express.js", "Mongoose"];
+  const filterTabs = ['All', 'React', 'Next.js', 'Node.js', 'MongoDB', 'Stripe', 'Firebase', 'JWT', 'Express.js'];
 
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
-    : projects.filter(project => project.tags.includes(activeFilter));
+  const filteredProjects =
+    activeFilter === 'All'
+      ? projects
+      : projects.filter((project) => project.tags.includes(activeFilter));
 
   return (
-    <section id="projects" className="py-20 bg-transparent">
-      <div className="container mx-auto px-6">
-        {/* Section Header */}
-        <div className="text-center mb-16 relative">
-          <h2 className="text-4xl font-bold text-white mb-8">Projects</h2>
-          {/* Vertical indicator line */}
-          <div className="w-0.5 h-16 bg-gradient-to-b from-cyan-500 to-transparent mx-auto absolute left-1/2 -bottom-16 transform -translate-x-1/2"></div>
-        </div>
+    <section id="projects" className="section-shell bg-transparent">
+      <div className="section-inner">
+        <motion.div
+          className="text-center mb-12 sm:mb-14 md:mb-16 relative"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportOnce}
+          transition={{ duration: duration.entrance, ease: easeOutExpo }}
+        >
+          <h2 className="section-heading">Projects</h2>
+          <div className="section-rule"></div>
+        </motion.div>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-20">
+        <motion.div
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12 sm:mb-16 md:mb-20"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {filterTabs.map((tab) => (
-            <button
+            <motion.button
               key={tab}
+              variants={fadeUpItem}
               onClick={() => setActiveFilter(tab)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.96 }}
+              transition={microTransition}
+              className={`px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium cursor-pointer ${
                 activeFilter === tab
-                  ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/25'
-                  : 'bg-[#112240] text-gray-400 hover:text-white hover:bg-[#1d355e] border border-transparent'
+                  ? 'btn-grad !py-1.5 !px-4 !text-xs sm:!text-sm !normal-case !tracking-normal shadow-lg'
+                  : 'bg-[#0c1f2a]/80 text-gray-300 hover:text-white hover:bg-[#16A085] border border-[#16A085]/20'
               }`}
             >
               {tab}
-            </button>
+            </motion.button>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Projects List - Alternating Layout */}
-        <div className="space-y-32">
-          <AnimatePresence>
+        <div className="space-y-16 sm:space-y-24 md:space-y-32">
+          <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.title}
                 layout
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                exit={{ opacity: 0, y: 50 }}
-                transition={{ duration: 0.6 }}
-                className={`flex flex-col md:flex-row gap-12 md:gap-20 items-center ${
+                viewport={viewportOnce}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{
+                  duration: duration.entrance,
+                  ease: easeOutExpo,
+                  delay: Math.min(index * 0.12, 0.36),
+                }}
+                className={`flex flex-col md:flex-row gap-8 sm:gap-12 md:gap-20 items-center ${
                   index % 2 === 1 ? 'md:flex-row-reverse' : ''
                 }`}
               >
-                {/* Text Content */}
-                <div className="flex-1 text-left">
-                  <h3 className="text-3xl font-bold text-white mb-6">
+                <div className="flex-1 text-left w-full">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 sm:mb-6">
                     {project.title}
                   </h3>
 
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
                     {project.tags.map((tag) => (
-                      <span 
-                        key={tag} 
-                        className="text-xs font-medium text-cyan-300 bg-[#112240] px-4 py-1.5 rounded-full border border-cyan-500/10"
+                      <span
+                        key={tag}
+                        className="text-[11px] sm:text-xs font-medium text-[#a8e6d7] bg-[#0c1f2a]/90 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border border-brand/20"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <p className="text-gray-400 leading-relaxed mb-8 text-lg">
+                  <p className="text-gray-300/90 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base md:text-lg">
                     {project.description}
                   </p>
 
-                  <div className="flex flex-wrap items-center gap-6 mt-auto">
-                    {/* Client Repo */}
+                  <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-auto">
                     {(project.clientRepo || project.codeLink) && (
-                      <a 
-                        href={project.clientRepo || project.codeLink} 
-                        target="_blank" 
+                      <a
+                        href={project.clientRepo || project.codeLink}
+                        target="_blank"
                         rel="noreferrer"
-                        className="group flex items-center gap-2 text-gray-300 hover:text-white font-medium transition-colors border-b border-transparent hover:border-white pb-0.5"
+                        className="group flex items-center gap-2 text-gray-300 hover:text-white font-medium border-b border-transparent hover:border-white pb-0.5 transition-colors duration-200"
                       >
                         Client Repo
-                        <span className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                        <span className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200 ease-out">
                           <FaExternalLinkAlt className="text-xs" />
                         </span>
                       </a>
                     )}
 
-                    {/* Server Repo */}
                     {project.serverRepo && (
-                      <a 
-                        href={project.serverRepo} 
-                        target="_blank" 
+                      <a
+                        href={project.serverRepo}
+                        target="_blank"
                         rel="noreferrer"
-                        className="group flex items-center gap-2 text-gray-300 hover:text-white font-medium transition-colors border-b border-transparent hover:border-white pb-0.5"
+                        className="group flex items-center gap-2 text-gray-300 hover:text-white font-medium border-b border-transparent hover:border-white pb-0.5 transition-colors duration-200"
                       >
                         Server Repo
-                        <span className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                        <span className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200 ease-out">
                           <FaExternalLinkAlt className="text-xs" />
                         </span>
                       </a>
                     )}
 
-                    {/* Live Link */}
                     {project.liveLink && (
-                      <a 
-                        href={project.liveLink} 
-                        target="_blank" 
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
                         rel="noreferrer"
-                        className="group flex items-center gap-2 text-gray-300 hover:text-white font-medium transition-colors border-b border-transparent hover:border-white pb-0.5"
+                        className="group flex items-center gap-2 text-gray-300 hover:text-white font-medium border-b border-transparent hover:border-white pb-0.5 transition-colors duration-200"
                       >
                         Live Link
-                        <span className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                        <span className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200 ease-out">
                           <FaExternalLinkAlt className="text-xs" />
                         </span>
                       </a>
@@ -179,29 +191,28 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* Image Content */}
                 <div className="flex-1 w-full">
-                  <div className="relative group rounded-xl overflow-hidden bg-[#112240] shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/30 transition-shadow duration-300">
-                    {/* Terminal/Browser Header Graphics - Optional decoration */}
-                    <div className="h-8 bg-[#0a192f] flex items-center px-4 gap-2">
-                       <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                       <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                       <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                  <motion.div
+                    whileHover={{ y: -4 }}
+                    transition={microTransition}
+                    className="relative group rounded-xl overflow-hidden bg-[#0a1a22] shadow-lg shadow-brand/10 hover:shadow-brand/30"
+                  >
+                    <div className="h-8 bg-[#05070a] flex items-center px-4 gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
                     </div>
-                    
-                    <div className="relative overflow-hidden aspect-video">
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      
-                      {/* Overlay */}
-                      <div className="absolute inset-0 bg-cyan-900/10 group-hover:bg-transparent transition-colors duration-300"></div>
-                    </div>
-                  </div>
-                </div>
 
+                    <div className="relative overflow-hidden aspect-video">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-brand-forest/30 group-hover:bg-transparent transition-colors duration-300 ease-out"></div>
+                    </div>
+                  </motion.div>
+                </div>
               </motion.div>
             ))}
           </AnimatePresence>

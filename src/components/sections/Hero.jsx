@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { easeOutExpo, duration, microTransition } from '../../lib/motion';
 
 const Hero = () => {
   return (
@@ -9,9 +10,9 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 text-center z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: duration.entrance, ease: easeOutExpo }}
         >
           <div className="flex items-center justify-center gap-2 mb-6">
             <div className="avatar">
@@ -27,8 +28,9 @@ const Hero = () => {
           </h1>
           
           <motion.button 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            transition={microTransition}
             className="btn btn-primary btn-lg rounded-full px-8 text-lg normal-case"
           >
             Get in touch now
@@ -39,7 +41,7 @@ const Hero = () => {
       {/* Scroll Indicator */}
       <motion.div 
         animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
+        transition={{ repeat: Infinity, duration: 2.2, ease: easeOutExpo }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-500"
       >
         <span className="text-sm">Scroll Down</span>

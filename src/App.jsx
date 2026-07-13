@@ -3,12 +3,12 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Banner from './components/sections/Banner';
 import UnderwaterBackground from './components/common/AnimatedBackground';
-// import ClientLogos from './components/sections/ClientLogos';
 import About from './components/sections/About';
 import Projects from './components/sections/Projects';
 import Experience from './components/sections/Experience';
 import Contact from './components/sections/Contact';
 import Education from './components/sections/Education';
+import Certifications from './components/sections/Certifications';
 import Skills from './components/sections/Skills';
 import Activities from './components/sections/Activities';
 import { ToastContainer } from "react-toastify";
@@ -24,19 +24,21 @@ function App() {
         <div id="skills">
           <Skills />
         </div>
+        <div id="experience">
+          <Experience />
+        </div>
         <div id="projects">
           <Projects />
         </div>
-        {/* <div id="experience">
-          <Experience />
-        </div> */}
         <div id="education">
           <Education />
+        </div>
+        <div id="certifications">
+          <Certifications />
         </div>
         <div id="about">
           <About/> 
         </div>
-
         <div id="activities">
           <Activities />
         </div>
@@ -44,7 +46,6 @@ function App() {
           <Contact />
           <ToastContainer />
         </div>
-        {/* Placeholders for missing sections if needed */}
         <div id="blog"></div>
         <div id="faq"></div>
       </main>

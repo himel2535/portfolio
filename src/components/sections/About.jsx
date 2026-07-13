@@ -1,71 +1,99 @@
 import React from "react";
 import { motion } from "framer-motion";
+import keyboardNeon from "../../assets/keyboard-neon.png";
+import {
+  viewportOnce,
+  staggerContainer,
+  fadeLeftItem,
+  fadeRightItem,
+  microTransition,
+  easeOutExpo,
+  duration,
+} from "../../lib/motion";
 
 const About = () => {
   return (
-    <section id="about" className="py-24 bg-transparent text-gray-300">
-      <div className="container mx-auto px-4">
+    <section id="about" className="section-shell bg-transparent text-gray-300">
+      <div className="section-inner">
         {/* Section Header */}
-        <div className="text-center mb-16 relative">
-          <h2 className="text-4xl font-bold text-white mb-8">About Me</h2>
-          <div className="w-0.5 h-16 bg-gradient-to-b from-cyan-500 to-transparent mx-auto absolute left-1/2 -bottom-16 transform -translate-x-1/2"></div>
-        </div>
+        <motion.div
+          className="text-center mb-12 sm:mb-14 md:mb-16 relative"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportOnce}
+          transition={{ duration: duration.entrance, ease: easeOutExpo }}
+        >
+          <h2 className="section-heading">About Me</h2>
+          <div className="section-rule"></div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-20">
-
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-14 sm:mt-16 md:mt-20"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {/* Left Column - Introduction */}
-          <motion.div
-            initial={{ opacity: 0, x: -50, scale: 0.95 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h2 className="text-3xl md:text-3xl font-bold text-white mb-6">
+          <motion.div variants={fadeLeftItem}>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">
               Hi, I'm Monwar Hossan Himel
             </h2>
-            <p className="text-lg md:text-xl leading-relaxed mb-6">
-              I'm a passionate Full-Stack Developer with a focus on creating modern, responsive web applications. I specialize in Next.js, React, Node.js, and TailwindCSS. I enjoy designing clean user interfaces and building seamless user experiences.
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-5 sm:mb-6 text-gray-300">
+              Junior Software Engineer with hands-on experience building scalable full-stack web applications using React, Node.js, Express, and MongoDB. Strong in designing secure RESTful APIs, implementing JWT-based authentication, and integrating third-party APIs including Stripe and Firebase.
             </p>
-            <p className="text-lg md:text-xl leading-relaxed">
-              Continuously learning and exploring new technologies, I am eager to contribute to meaningful projects and collaborate with innovative teams.
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8 text-gray-300">
+              Experienced in developing role-based systems following Agile SDLC, with a solid foundation in Data Structures and Algorithms and backend-focused problem solving.
             </p>
+            {/* Keyboard atmosphere image (ref photo 3) */}
+            <div className="relative rounded-3xl overflow-hidden border border-brand/20 shadow-xl shadow-brand/15 max-w-md">
+              <img
+                src={keyboardNeon}
+                alt=""
+                className="w-full h-44 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/70 via-transparent to-brand-forest/40 pointer-events-none" />
+            </div>
           </motion.div>
 
           {/* Right Column - Personal Info */}
           <motion.div
-            initial={{ opacity: 0, x: 50, scale: 0.95 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            whileHover={{ 
-              y: -10,
-              boxShadow: '0 20px 40px -15px rgba(6, 182, 212, 0.3)',
+            variants={fadeRightItem}
+            whileHover={{
+              y: -8,
+              boxShadow: "0 20px 40px -15px rgba(22, 160, 133, 0.35)",
             }}
-            className="bg-[#112240]/50 backdrop-blur-sm shadow-xl shadow-cyan-500/10 rounded-xl p-8 transition-all duration-300 cursor-pointer"
+            transition={microTransition}
+            className="glass-card-soft shadow-xl shadow-brand/10 rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 cursor-pointer"
           >
-            <h3 className="text-2xl font-semibold text-white mb-6 border-b border-gray-700 pb-2">
+            <h3 className="text-2xl font-semibold text-white mb-6 border-b border-brand/20 pb-2">
               Personal Info
             </h3>
             <ul className="text-gray-300 space-y-4">
               <li>
-                <strong>Location:</strong> Dhaka, Kishoreganj
+                <strong>Title:</strong> Junior Software Engineer
               </li>
               <li>
-                <strong>Open For:</strong> Internship / Freelance Projects / Junior Roles
+                <strong>Location:</strong> Uttara, Dhaka, Bangladesh
               </li>
               <li>
-                <strong>Skills:</strong> HTML5, CSS3, JavaScript, React, Next.js, Node.js, Express, MongoDB, Mongoose, Firebase, TypeScript, Tailwind CSS, DaisyUI, JWT, Stripe
+                <strong>Email:</strong> monwarhossanhimel@gmail.com
               </li>
               <li>
-                <strong>Tools:</strong> GitHub, VS Code, Postman, Thunderclient, ImgBB, Cloudinary, Communication
+                <strong>Phone:</strong> +8801617721429
               </li>
               <li>
-                <strong>Experience:</strong> Designing and developing web apps with modern tech stack
+                <strong>Open For:</strong> Full-time Junior Roles / Collaborative Projects
+              </li>
+              <li>
+                <strong>Skills:</strong> JavaScript, TypeScript, React, Next.js, Node.js, Express, MongoDB, JWT, Firebase, Stripe, Tailwind CSS
+              </li>
+              <li>
+                <strong>Languages:</strong> Bangla (Native), English (Professional Working), Hindi (Spoken)
               </li>
             </ul>
           </motion.div>
-
-        </div>
+        </motion.div>
       </div>
     </section>
   );
