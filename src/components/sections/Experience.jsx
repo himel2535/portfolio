@@ -25,26 +25,23 @@ const Experience = () => {
 
   const experiences = [
     {
-      role: 'Junior Software Engineer',
-      company: 'Software Driven Business IT (Sellxify)',
+      role: 'Full Stack Software Engineer',
+      company: 'SDB-IT (Software Driven Business IT)',
       location: 'Uttara, Dhaka, Bangladesh',
-      period: '07/2026 – Present',
+      period: 'Sep 2025 – Present',
       bullets: [
-        'Develop and maintain full-stack features across the production codebase using React, Node.js, Express, and MongoDB, delivering 12+ core functional components following Agile-based SDLC practices.',
-        'Collaborate cross-functionally with senior engineers during 6+ sprint planning sessions to translate product requirements into production-ready code.',
-        'Own end-to-end implementation of assigned modules, maintaining a 95% task completion rate on time while adhering to strict code benchmarks.',
-        'Diagnose and resolve 20+ production bugs and UI glitches, reducing average critical bug turnaround time by 25%.',
-        'Tracked against core KPIs — achieving over 90% compliance in Production Code Quality, Bug Optimization Time, Deadline Compliance, and Team Collaboration as monitored by engineering leadership.',
+        'Own the full product lifecycle – frontend and backend development, database design, third-party integrations (payment gateways, authentication providers), and QA testing – across 35+ production projects, delivered independently while iterating on UI feedback through close collaboration with clients and designers in cross-functional Agile teams.',
+        'Built responsive, accessible frontend interfaces paired with scalable, secure RESTful backend services and LLM-powered features (function calling / tool-use agent patterns), while directly managing client communication and requirement scoping to translate business needs into user-friendly solutions.',
       ],
     },
     {
-      role: 'Web Development Intern',
+      role: 'MERN Stack Development Intern',
       company: 'Hex Softwares Pvt. Ltd.',
-      location: 'Remote (Work From Home)',
-      period: '12/2025 – 01/2026',
+      location: 'Remote',
+      period: 'Jan 2025 – Jun 2025',
       bullets: [
-        'Completed a 1-month Web Development internship starting 25 December 2025, applying training knowledge to real project work under Hex Softwares Pvt. Ltd.',
-        'Gained hands-on industry experience in the Web Development domain through practical assignment and task execution in a remote work environment.',
+        'Completed a 6-month internship, contributing to 15+ real-world projects within Agile, team-based sprint cycles, building and maintaining full-stack, responsive features using React.js, Node.js, Express.js, and MongoDB in close collaboration with senior developers.',
+        'Strengthened core skills in REST API integration, Git-based version control, and industry-standard code workflows.',
       ],
     },
   ];

@@ -40,10 +40,10 @@ const About = () => {
               Hi, I'm Monwar Hossan Himel
             </h2>
             <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-5 sm:mb-6 text-gray-300">
-              Junior Software Engineer with hands-on experience building scalable full-stack web applications using React, Node.js, Express, and MongoDB. Strong in designing secure RESTful APIs, implementing JWT-based authentication, and integrating third-party APIs including Stripe and Firebase.
+              Full-Stack Software Engineer with 1.5+ years of experience independently building and shipping scalable, end-to-end SaaS and ERP platforms. Graduated in Computer Science and Engineering from Jahangirnagar University.
             </p>
             <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8 text-gray-300">
-              Experienced in developing role-based systems following Agile SDLC, with a solid foundation in Data Structures and Algorithms and backend-focused problem solving.
+              A dependable Agile contributor recognized for clean code, strong problem-solving, and consistent, on-time delivery.
             </p>
             {/* Keyboard atmosphere image (ref photo 3) */}
             <div className="relative rounded-3xl overflow-hidden border border-brand/20 shadow-xl shadow-brand/15 max-w-md">
@@ -71,7 +71,7 @@ const About = () => {
             </h3>
             <ul className="text-gray-300 space-y-4">
               <li>
-                <strong>Title:</strong> Junior Software Engineer
+                <strong>Title:</strong> Full-Stack Engineer
               </li>
               <li>
                 <strong>Location:</strong> Uttara, Dhaka, Bangladesh
@@ -86,7 +86,7 @@ const About = () => {
                 <strong>Open For:</strong> Full-time Junior Roles / Collaborative Projects
               </li>
               <li>
-                <strong>Skills:</strong> JavaScript, TypeScript, React, Next.js, Node.js, Express, MongoDB, JWT, Firebase, Stripe, Tailwind CSS
+                <strong>Skills:</strong> Next.js, React, NestJS, Node.js, TypeScript, PostgreSQL, MongoDB, Redis, Docker
               </li>
               <li>
                 <strong>Languages:</strong> Bangla (Native), English (Professional Working), Hindi (Spoken)

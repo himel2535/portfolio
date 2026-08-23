@@ -13,7 +13,7 @@ const Education = () => {
   const education = [
     {
       institution: 'Jahangirnagar University',
-      degree: 'M.Sc. in Computer Science and Engineering (Ongoing)',
+      degree: 'M.Sc. in Computer Science and Engineering',
       location: 'Savar, Dhaka-1342',
     },
     {

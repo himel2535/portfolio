@@ -42,10 +42,11 @@ export const staggerContainer = {
 
 /** Child: gentle fade + slide up */
 export const fadeUpItem = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 30, willChange: 'transform, opacity' },
   visible: {
     opacity: 1,
     y: 0,
+    willChange: 'auto',
     transition: entranceTransition,
   },
 };

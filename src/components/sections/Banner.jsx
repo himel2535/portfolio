@@ -4,13 +4,16 @@ import { Link } from 'react-scroll';
 import profileImage from '../../assets/profileImage.jpg';
 import laptopGlow from '../../assets/laptop-glow.png';
 import {
+  viewportOnce,
+  staggerContainer,
+  fadeUpItem,
   easeOutExpo,
   duration,
   microTransition,
 } from '../../lib/motion';
 
 const Banner = () => {
-  const titleText = 'Junior Software Engineer';
+  const titleText = 'Full-Stack Engineer';
   const nameText = 'Monwar Hossan Himel';
 
   return (
@@ -22,43 +25,35 @@ const Banner = () => {
         {/* Text Content */}
         <div className="text-center md:text-left order-2 md:order-1">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: duration.entrance, ease: easeOutExpo }}
+            className="flex flex-col text-center md:text-left"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
           >
             <motion.h2
               className="text-[1.65rem] leading-tight sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 name-grad"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: duration.entrance, ease: easeOutExpo, delay: 0.15 }}
+              variants={fadeUpItem}
             >
               {nameText}
             </motion.h2>
 
             <motion.h1
               className="text-base sm:text-xl md:text-3xl font-semibold mb-4 sm:mb-6 text-[#F4D03F]"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: duration.entrance, ease: easeOutExpo, delay: 0.35 }}
+              variants={fadeUpItem}
             >
               {titleText}
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: duration.entrance, delay: 0.55, ease: easeOutExpo }}
+              variants={fadeUpItem}
               className="text-gray-300/90 text-sm sm:text-base mb-6 sm:mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed px-1"
             >
-              Junior Software Engineer with hands-on experience building scalable full-stack web
-              applications using React, Node.js, Express, and MongoDB. Strong in secure RESTful APIs,
-              JWT authentication, and third-party integrations including Stripe and Firebase.
+              Full-Stack Software Engineer with 1.5+ years of experience independently building and shipping scalable, end-to-end SaaS and ERP platforms. A dependable Agile contributor recognized for clean code, strong problem-solving, and consistent, on-time delivery.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: duration.entrance, delay: 0.7, ease: easeOutExpo }}
+              variants={fadeUpItem}
               className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-3 sm:gap-4"
             >
               <Link to="about" smooth={true} duration={500} className="w-full sm:w-auto">
@@ -75,7 +70,7 @@ const Banner = () => {
                 </motion.button>
               </Link>
 
-              <a href="/Himel_Resume_Full-Stack.pdf" download className="w-full sm:w-auto">
+              <a href="https://drive.google.com/file/d/1y1YujlHV6y8byb-sJ_NGtwsrLMjxQe-k/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -96,9 +91,7 @@ const Banner = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: duration.entrance, delay: 0.85, ease: easeOutExpo }}
+              variants={fadeUpItem}
               className="mt-8 sm:mt-10 md:mt-12"
             >
               <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">Find me on</p>
@@ -166,24 +159,27 @@ const Banner = () => {
         {/* Image Content — first on mobile */}
         <div className="flex justify-center items-center md:justify-end relative order-1 md:order-2 mb-2 md:mb-0">
           <div className="relative">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: duration.entranceSlow, delay: 0.4, ease: easeOutExpo }}
+            <div
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-[210%] pointer-events-none"
               style={{ zIndex: 0 }}
             >
-              <h1
-                className="text-[2rem] sm:text-[3.25rem] md:text-[5rem] font-bold leading-none whitespace-nowrap"
-                style={{
-                  color: 'transparent',
-                  WebkitTextStroke: '1px rgba(22, 160, 133, 0.22)',
-                  userSelect: 'none',
-                }}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: duration.entranceSlow, delay: 0.4, ease: easeOutExpo }}
               >
-                Software <br /> Engineer
-              </h1>
-            </motion.div>
+                <h1
+                  className="text-[2rem] sm:text-[3.25rem] md:text-[5rem] font-bold leading-none whitespace-nowrap"
+                  style={{
+                    color: 'transparent',
+                    WebkitTextStroke: '1px rgba(22, 160, 133, 0.22)',
+                    userSelect: 'none',
+                  }}
+                >
+                  Software <br /> Engineer
+                </h1>
+              </motion.div>
+            </div>
 
             <motion.div
               initial={{ opacity: 0, scale: 0.92 }}

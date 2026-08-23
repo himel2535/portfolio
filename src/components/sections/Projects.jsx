@@ -15,52 +15,38 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'ContestHub – Creative Contest Management Platform',
-      description:
-        'Production-grade contest management platform enabling creators to host contests, participants to securely compete, and admins to manage approvals and moderation. Features a full RBAC system (Admin, Contest Creator, Normal User), Stripe payments, TanStack Query caching, dynamic leaderboards, and MongoDB indexing/pagination — supporting 100+ concurrent sessions and 500+ contest records.',
-      image: 'https://i.ibb.co.com/KM49yLs/Screen-Shot-2025-12-17-at-2-17-39-AM.png',
-      tags: [
-        'React',
-        'Tailwind CSS',
-        'TanStack Query',
-        'Node.js',
-        'Express.js',
-        'MongoDB',
-        'Firebase',
-        'JWT',
-        'Stripe',
-        'Framer Motion',
-      ],
-      liveLink: 'https://contest-hub-bfe54.web.app/',
-      clientRepo: 'https://github.com/himel2535/contestHub-frontend',
-      serverRepo: 'https://github.com/himel2535/contestHub-backend',
+      title: 'Zayan Mart ERP – Unified Manufacturing & Enterprise Command Platform',
+      description: 'Enterprise-grade, multi-tenant ERP & CRM SaaS platform built independently end-to-end for Zayan Mart, covering 13 core modules – Dashboard, Sales & CRM, Inventory, Purchases, Factory/Manufacturing, Accounts, HR, Payroll, Projects, Assets, Approvals, Reports. Engineered a two-layer caching architecture cutting response times from 778ms to 17ms.',
+      image: '/zayan-mart-erp.jpg',
+      tags: ['Next.js', 'React', 'Zustand', 'Node.js', 'Express.js', 'MongoDB', 'Redis', 'Socket.io'],
+      liveLink: 'https://toys-factory-erp-one.vercel.app/',
+      clientRepo: 'https://github.com/himel2535/toys_factory_erp',
+      serverRepo: 'https://github.com/himel2535/toys_factory_erp_backend',
       featured: true,
     },
     {
-      title: 'AI Model Inventory Manager',
-      description:
-        'Role-based AI model marketplace allowing users to upload, publish, purchase, and track AI models while administrators review and approve submissions. Secured with Firebase Authentication and JWT across 15+ RESTful endpoints, with purchase tracking and contributor analytics covering 100+ listed models.',
-      image: 'https://i.ibb.co.com/nqBgS3D6/AI-model-Cover-Photo.png',
-      tags: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Firebase', 'JWT'],
-      liveLink: 'https://ai-model-inventory-manag-45b01.web.app/',
-      clientRepo: 'https://github.com/himel2535/ai-model-inventory-manager-client',
-      serverRepo: 'https://github.com/himel2535/ai-model-inventory-manager-server',
+      title: 'BuildMatrix ERP – Enterprise Construction & Real Estate Operations Platform',
+      description: 'High-concurrency ERP platform engineered independently to coordinate multi-million BDT civil budgets, procurement pipelines, site compliance, and double-entry financial accounts across 13 core enterprise modules. Optimized database query performance using PostgreSQL B-Tree schema indexing and custom NestJS in-memory caching.',
+      image: '/buildmatrix-erp.png',
+      tags: ['Next.js', 'NestJS', 'PostgreSQL', 'Prisma', 'TypeScript', 'TanStack Query'],
+      liveLink: 'https://construction-management-system-lyart.vercel.app/',
+      clientRepo: 'https://github.com/himel2535/construction_management_system',
+      serverRepo: 'https://github.com/himel2535/construction_management_system_backend',
       featured: true,
     },
     {
-      title: 'Learning Books – E-Book Management System',
-      description:
-        'Full-stack CRUD-based learning platform for managing digital books through secure backend operations. Built with Next.js routing and SSR, Express REST APIs with ObjectId validation, and MongoDB — managing 200+ book records with robust error handling.',
-      image: '/project_image.png',
-      tags: ['Next.js', 'Node.js', 'Express.js', 'MongoDB'],
-      liveLink: 'https://learning-store-next.vercel.app/',
-      clientRepo: 'https://github.com/himel2535/learning-store-next',
-      serverRepo: 'https://github.com/himel2535/learning-books-express',
+      title: 'WorkTrack Enterprise – Workforce Administration & Productivity Platform',
+      description: 'Full-stack office administration system independently designed and deployed to streamline enterprise employee attendance, automated wage/break analytics, hourly task tracking, and workforce performance evaluation. Architected a robust RBAC security matrix.',
+      image: '/worktrack-enterprise.png',
+      tags: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'JWT'],
+      liveLink: 'https://worktrack-management-system.vercel.app/',
+      clientRepo: 'https://github.com/himel2535/worktrack_management_system',
+      serverRepo: 'https://github.com/himel2535/worktrack_backend',
       featured: true,
     },
   ];
 
-  const filterTabs = ['All', 'React', 'Next.js', 'Node.js', 'MongoDB', 'Stripe', 'Firebase', 'JWT', 'Express.js'];
+  const filterTabs = ['All', 'Next.js', 'React', 'Node.js', 'NestJS', 'PostgreSQL', 'MongoDB', 'Redis'];
 
   const filteredProjects =
     activeFilter === 'All'
@@ -209,7 +195,6 @@ const Projects = () => {
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-brand-forest/30 group-hover:bg-transparent transition-colors duration-300 ease-out"></div>
                     </div>
                   </motion.div>
                 </div>
