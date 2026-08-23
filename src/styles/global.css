@@ -112,7 +112,6 @@ button {
   color: transparent;
 }
 
-/* Hero name — full-word gradient (letter-split breaks bg-clip) */
 .name-grad {
   background-image: linear-gradient(
     105deg,

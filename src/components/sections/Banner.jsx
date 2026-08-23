@@ -13,7 +13,7 @@ import {
 } from '../../lib/motion';
 
 const Banner = () => {
-  const titleText = 'Full-Stack Engineer';
+  const titleText = 'Full-Stack Software Engineer';
   const nameText = 'Monwar Hossan Himel';
 
   return (
@@ -39,7 +39,7 @@ const Banner = () => {
             </motion.h2>
 
             <motion.h1
-              className="text-base sm:text-xl md:text-3xl font-semibold mb-4 sm:mb-6 text-[#F4D03F]"
+              className="text-base sm:text-xl md:text-3xl font-semibold mb-4 sm:mb-6 text-brand"
               variants={fadeUpItem}
             >
               {titleText}
